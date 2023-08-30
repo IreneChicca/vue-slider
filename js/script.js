@@ -57,9 +57,17 @@ createApp({
       }
     },
 
+    // aggiungo una funzione che in base alla thumb cliccata cambi anche l'immagine grande visualizzata
     clickImg(index) {
       console.log(this.activeImg);
       this.activeImg = index;
     },
+  },
+
+  // creo una funzione che al completamento del caricamento oggetto vue, setta un interval di 3 secondi e lancia la funzione go next che skippa la slide visualizzata
+  created() {
+    setInterval(() => {
+      this.goNext();
+    }, 3000);
   },
 }).mount("#app");
