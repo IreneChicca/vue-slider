@@ -35,6 +35,7 @@ createApp({
 
       // creo una chiave che rappresenterà l'img visualizzata sullo slider
       activeImg: 0,
+      autoplay: false,
     };
   },
 
@@ -62,12 +63,17 @@ createApp({
       console.log(this.activeImg);
       this.activeImg = index;
     },
+
+    setAutoplay() {
+      this.autoplay = setInterval(() => {
+        this.goNext();
+      }, 3000);
+    },
   },
 
   // creo una funzione che al completamento del caricamento oggetto vue, setta un interval di 3 secondi e lancia la funzione go next che skippa la slide visualizzata
+
   created() {
-    setInterval(() => {
-      this.goNext();
-    }, 3000);
+    this.setAutoplay();
   },
 }).mount("#app");
