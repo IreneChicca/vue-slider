@@ -64,14 +64,22 @@ createApp({
       this.activeImg = index;
     },
 
+    // creo una funzione che al completamento del caricamento oggetto vue, setta un interval di 3 secondi e lancia la funzione go next che skippa la slide visualizzata
+
     setAutoplay() {
       this.autoplay = setInterval(() => {
         this.goNext();
-      }, 3000);
+      }, 1000);
+    },
+
+    // creo una funzione che clear l'interval dell'autoplay
+    stopAutoplay() {
+      if (this.autoplay) {
+        clearInterval(this.autoplay);
+        this.autoplay = false;
+      }
     },
   },
-
-  // creo una funzione che al completamento del caricamento oggetto vue, setta un interval di 3 secondi e lancia la funzione go next che skippa la slide visualizzata
 
   created() {
     this.setAutoplay();
