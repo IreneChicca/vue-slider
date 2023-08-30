@@ -56,5 +56,10 @@ createApp({
         this.activeImg = this.slides.length - 1;
       }
     },
+
+    clickImg(index) {
+      console.log(this.activeImg);
+      this.activeImg = index;
+    },
   },
 }).mount("#app");
